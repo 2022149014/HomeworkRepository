@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "utf-8">
+        <title> SIGNUP </title>
+        <link rel = "stylesheet" type = "text/css" href = "main.css">
+    </head>
+    <body>
+        <div class = "welcome_panel">
+            <h1> Welcome to INTERNET-PROGRAMMING SHOP </h1>
+        </div> 
+        <div>
+            <div class = "pagebutton_active">
+                <a href = "login.html"> <p> LOGIN </p> </a>
+            </div>
+            <div class = "pagebutton_inactive">
+                <p> SIGNUP </p>
+            </div>
+        </div>
+        <div class = "signup_UI">
+            <form method = "POST" autocomplete = "on" action = "">
+                <p> <label> <span> First Name<label class = "isrequired">*</label>: </span> <input type = "text" name = "firstname" placeholder = "First Name" required/> </label> </p>
+                <p> <label> <span> Last Name<label class = "isrequired">*</label>: </span> <input type = "text" name = "lastname" placeholder = "Last Name" required/> </label> </p>
+                <p> <label> <span> Gender<label class = "isrequired">*</label>: </span> 
+                    Male <input type = "radio" name = "gender" value = "male"/> 
+                    Female <input type = "radio" name = "gender" value = "female"/>
+                </label> </p>
+                <p> <label> <span> Birthday<label class = "isrequired">*</label>: </span> <input type = "date" name = "birthday" required/> </label> </p>
+                <p> <label> <span> ID<label class = "isrequired">*</label>: </span> <input type = "ID" name = "id" required> </label> </p>
+                <p> <label> <span> Password<label class = "isrequired">*</label>: </span> <input type = "password" name = "password" required/> </label> </p>
+                <p> <label> <span> Confirm Password<label class = "isrequired">*</label>: </span> <input type = "password" name = "confirmpassword" required/> </label> </p>
+                <p> <label> <span> Favorite Color: </span> <input type = "color" name = "color" autofocus/> </label> </p>
+                <p> <label> <span class = "nowidth"> Favorite Number (1~100): </span> <input type = "number" name = "number" min = "1" max = "100" step = "1" value = "1"/> </label> </p>
+                <p> <label> <span class = "nowidth"> Disclosure to Information to Third Party (Optional)</span> <input name = "disclosure_information" type = "checkbox" value = "disclousre_information"/> </label></p>
+                <p> 
+                    <input type = "submit" class = "greenbutton" value = "Signup" name = "Signup"/>
+                    <input type = "reset" class = "redbutton" value = "Clear" name = "Clear"/>
+                </p>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,97 @@
+div.welcome_panel {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.2em;
+    padding: 5px;
+}
+div.pagebutton_inactive {
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    margin: auto;
+    background-color: #05c4bc;
+    border-radius: 20px 20px 0px 0px;
+    font-weight: bold;
+    font-size: 1em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+div.pagebutton_inactive p {
+    margin: 0px 0px 0px 0px;
+    padding: 12px 0px 10px 0px;
+    color: white;
+}
+div.pagebutton_active {
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    margin: auto;
+    background-color: #05c4bc;
+    border-radius: 20px 20px 0px 0px;
+    font-weight: bold;
+    font-size: 1em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+div.pagebutton_active:hover {
+    background-color: #057d77;
+}
+div.pagebutton_active p {
+    margin: 0px 0px 0px 0px;
+    padding: 12px 0px 10px 0px;
+    color: white;
+}
+div.pagebutton_active a {
+    text-decoration: none;
+}
+div.login_UI {
+    border: 2px black solid;
+    border-left-width: 0px; border-right-width: 0px;
+}
+div.login_UI span {
+    display: inline-block;
+    width: 100px;
+}
+.button_UI {
+    width: 60px; height: 25px;
+}
+.greenbutton {
+    width: 60px; height: 25px; 
+    background-color: greenyellow;
+    border-width: 1px;
+    border-radius: 6px;
+}
+.greenbutton:hover {
+    background-color: #86C623;
+}
+.redbutton {
+    width: 60px; height: 25px;
+    background-color: #F16565;
+    border-width: 1px;
+    border-radius: 6px;
+}
+.redbutton:hover {
+    background-color: #BD5252;
+}
+.bluebutton {
+    width: 60px; height: 25px;
+    background-color: skyblue;
+    border-width: 1px;
+    border-radius: 6px;
+}
+.bluebutton:hover {
+    background-color:cadetblue;
+}
+div.signup_UI {
+    border: 2px black solid;
+    border-left-width: 0px; border-right-width: 0px;
+}
+div.signup_UI span {
+    display: inline-block;
+    width: 180px;
+}
+
+div.signup_UI span.nowidth {
+    width: auto;
+    margin-right: 10px;
+}
+label.isrequired {
+    color: red;
+}
