@@ -15,14 +15,12 @@
             </div>
         </div>
         <div class = "login_UI">
-            <form method = "GET" action = "">
-                <p> <label> <span> ID: </span> <input type = "text" name = "id" required/> </label> </p>
-                <p> <label> <span> Password: </span> <input type = "password" name = "password" required/> </label></p>
+            <form method = "POST">
+                <p> <label> <span> ID: </span> <input type = "text" name = "id" required /> </label> </p>
+                <p> <label> <span> Password: </span> <input type = "password" name = "password" required /> </label></p>
                 <p>
-                    <input type = "submit" class = "greenbutton" value = "Login" name = "Login"/>
-                    <a href = "signup.html">
-                        <input type = "button" class = "bluebutton" value = "Sign Up" name = "Signup"/>
-                    </a>
+                    <input type = "submit" class = "greenbutton" value = "Login" name = "Login" />
+                    <button class = "bluebutton" onclick = "location.href = 'signup.html';" name = "Signup"> Sign Up </button> 
                 </p>
             </form>
         </div>
