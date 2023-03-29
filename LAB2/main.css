@@ -92,6 +92,7 @@ div.signup_UI span.nowidth {
     width: auto;
     margin-right: 10px;
 }
-label.isrequired {
+div.signup_UI span span.isrequired {
+    display: inline;
     color: red;
 }
