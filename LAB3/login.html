@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "utf-8">
+        <title> LOGIN </title>
+        <link rel = "stylesheet" type = "text/css" href = "main.css">
+    </head>
+    <body>
+        <div class = "welcome_panel">
+            <h1> Welcome to INTERNET-PROGRAMMING SHOP </h1>
+        </div> 
+        <div class = "flex-container_nav">
+            <div class = "flex-item_nav"> <a href = "index.html"> MAIN </a> </div>
+            <div class = "flex-item_nav"> <a href = "login.html"> LOGIN </a> </div>
+            <div class = "flex-item_nav"> <a href = "signup.html"> SIGNUP </a> </div>
+        </div>
+        <div class = "login_UI">
+            <form method = "GET">
+                <p> <label> <span> ID: </span> <input type = "text" name = "id" required /> </label> </p>
+                <p> <label> <span> Password: </span> <input type = "password" name = "password" required /> </label></p>
+                <p>
+                    <input type = "submit" class = "greenbutton" value = "Login" name = "Login" />
+                    <button class = "bluebutton" onclick = "location.href = 'signup.html';" name = "Signup"> SignUp </button> 
+                </p>
+            </form>
+        </div>
+    </body>
+</html>
