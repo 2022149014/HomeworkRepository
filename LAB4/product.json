@@ -1,0 +1,62 @@
+[
+    {
+        "name": "FHD 24 inch",
+        "category": "computer monitor",
+        "price": "75360",
+        "img_link": "img/FHD24.jpg"
+    },
+    {
+        "name": "QHD 27 inch",
+        "category": "computer monitor",
+        "price": "196800",
+        "img_link": "img/QHD27.webp"
+    },
+    {
+        "name": "Intel i5 10th generation",
+        "category": "CPU",
+        "price": "178088",
+        "img_link": "img/Intel_i5_10th.webp"
+    },
+    {
+        "name": "AMD Ryzen 3rd generation",
+        "category": "CPU",
+        "price": "73616",
+        "img_link": "img/AMD_Ryzen_3rd.webp"
+    },
+    {
+        "name": "RTX 2060",
+        "category": "GPU",
+        "price": "230000",
+        "img_link": "img/RTX2060.webp"
+    },
+    {
+        "name": "RTX 3080",
+        "category": "GPU",
+        "price": "575000",
+        "img_link": "img/RTX3060.webp"
+    },
+    {
+        "name": "RTX 3060",
+        "category": "GPU",
+        "price": "467000",
+        "img_link": "img/RTX3060.webp"
+    },
+    {
+        "name": "Z390",
+        "category": "main board",
+        "price": "210600",
+        "img_link": "img/Z390.webp"
+    },
+    {
+        "name": "X470",
+        "category": "main board",
+        "price": "701400",
+        "img_link": "img/X470.webp"
+    },
+    {
+        "name": "H310",
+        "category": "main board",
+        "price": "89290",
+        "img_link": "img/H310.webp"
+    }
+]

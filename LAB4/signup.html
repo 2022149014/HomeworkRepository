@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "utf-8">
+        <title> SIGNUP </title>
+        <link rel = "stylesheet" type = "text/css" href = "main.css">
+    </head>
+    <body>
+        <div class = "welcome_panel">
+            <h1> Welcome to INTERNET-PROGRAMMING SHOP </h1>
+        </div> 
+        <div class = "flex-container_nav">
+            <div class = "flex-item_nav"> <a href = "index.html"> MAIN </a> </div>
+            <div class = "flex-item_nav"> <a href = "login.html"> LOGIN </a> </div>
+            <div class = "flex-item_nav"> <a href = "signup.html"> SIGNUP </a> </div>
+        </div>
+        <div class = "signup_UI">
+            <form method = "GET" action = "login.html">
+                <p> <label> <span> First Name<span class = "isrequired">*</span>: </span> <input type = "text" name = "firstname" placeholder = "First Name" autocomplete = "on" autofocus required/> </label> </p>
+                <p> <label> <span> Last Name<span class = "isrequired">*</span>: </span> <input type = "text" name = "lastname" placeholder = "Last Name" autocomplete = "on" required/> </label> </p>
+                <p> <span> Gender<span class = "isrequired">*</span>: </span> 
+                    <label> Male <input type = "radio" name = "gender" value = "male"/> </label>
+                    <label> Female <input type = "radio" name = "gender" value = "female"/> </label>
+                </p>
+                <p> <label> <span> Email<span class = "isrequired">*</span>: </span> <input type = "email" name = "email" placeholder = "example@domain.com" autocomplete = "on" required/> </label> </p>
+                <p> <label> <span> Birthday<span class = "isrequired">*</span>: </span> <input type = "date" name = "birthday" required/> </label> </p>
+                <p> <label> <span> ID<span class = "isrequired">*</span>: </span> <input type = "text" name = "id" required> </label> </p>
+                <p> <label> <span> Password<span class = "isrequired">*</span>: </span> <input type = "password" name = "password" required/> </label> </p>
+                <p> <label> <span> Confirm Password<span class = "isrequired">*</span>: </span> <input type = "password" name = "confirmpassword" required/> </label> </p>
+                <p> <label> <span> Favorite Color: </span> <input type = "color" name = "color"/> </label> </p>
+                <p> <label> <span class = "nowidth"> Favorite Number (1~100): </span> <input type = "number" name = "number" min = "1" max = "100" step = "1" value = "1"/> </label> </p>
+                <p> <label> <span class = "nowidth"> Disclosure to Information to Third Party (Optional)</span> <input name = "disclosure_information" type = "checkbox" value = "disclousre_information"/> </label></p>
+                <p> 
+                    <input type = "submit" class = "greenbutton" value = "Signup" name = "Signup"/>
+                    <input type = "reset" class = "redbutton" value = "Clear" name = "Clear"/>
+                </p>
+            </form>
+        </div>
+    </body>
+</html>
