@@ -52,13 +52,24 @@ div.signup_UI span span.isrequired { display: inline; color: red; }
 #searchterm { width: 120px; }
 #category, #sort { width: 128px; }
 
-#display_products { 
-    display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: flex-start; 
-}
+#display_products { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: flex-start; }
 
 .contents { margin: 10px 0px 10px 0px; }
 .contents section { column-count: 2; column-gap: 15px; column-rule: 1px solid black; }
 .contents section p { margin: 0px; text-align: justify; }
+
+.container { position: relative; flex: 40%; margin: 10px 0px 10px 0px; }
+.container img { display: block; position: relative; width: 50%; height: 50%; margin: 0 auto;}
+
+.container .overlay { 
+    position: absolute; display: block; top: 0px; bottom: 0px; right: 0px; left: 0px; 
+    opacity: 0; background-color: black; 
+    text-align: center;
+    color: white; 
+}
+.container .overlay div { position: relative; top: 30%; transform: translateY(-50%); }
+.container .overlay div p:first-child { font-size: 24px; }
+.container .overlay { cursor: default; }
 
 /* keyframes */
 @keyframes movingrl {
@@ -67,18 +78,12 @@ div.signup_UI span span.isrequired { display: inline; color: red; }
 }
 
 @media all and (max-width: 1020px) {
-    div.welcome_panel .moving_rl h1 { white-space: normal; }
-    div.container { width: 110px; height: 110px; }
-    div.flex-item_computers { flex: 40%; }
-}
-
-@media all and (max-width: 800px) {
-    div.flex-item_computers { flex: 40%; }
+    .welcome_panel .moving_rl h1 { white-space: normal; }
 }
 
 @media all and (max-width: 480px) {
-    div.flex-container_nav { flex-direction: column; }
-    div.flex-container_nav .flex-item_nav { width: 100%; margin-bottom: 1px; border-radius: 0px 0px 0px 0px; }
-    div.flex-item_computers { flex: 100%; }
-    div.contents section { column-count: 1; }
+    .flex-container_nav { flex-direction: column; }
+    .flex-container_nav .flex-item_nav { width: 100%; margin-bottom: 1px; border-radius: 0px 0px 0px 0px; }
+    .container { flex: 100%; }
+    .contents section { column-count: 1; }
 }

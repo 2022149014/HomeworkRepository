@@ -5,17 +5,20 @@
         <title> MAIN PAGE </title>
         <link rel = "stylesheet" type = "text/css" href = "main.css">
         <script>
-            window.onload = get_products();
+            let category_products = [];
+            let final_products = [];
+            let index = 0;
+            const product_num = 4;
+            window.onload = get_products(); 
+            window.onscroll = () => { if(window.innerHeight + window.scrollY >= document.body.offsetHeight) add_products(); };
             function get_products() {
-                fetch('product.json', {
-                    credentials: 'include',
-                })
+                fetch('product.json')
                 .then(response => {
                     if(!response.ok) throw new Error(`HTTP error: ${response.status}`);
                     return response.json();
                 })
                 .then(json => init_setting(json))
-                .catch(err => console.error(`Fetch problem: ${err.message}`));
+                .catch(err => console.log('Error: ', err));
 
                 function init_setting(products) {
                     const category = document.querySelector('#category');
@@ -23,21 +26,25 @@
                     const sort = document.querySelector('#sort');
                     const search_btn = document.querySelector('#search_btn');
 
-                    category_products = [];
-                    final_products = [];
-
-                    search_btn.addEventListener('click', search_by_category);   
+                    search_btn.addEventListener('click', search_by_category);
+                    category_products = products;
+                    search_by_term();
                     function search_by_category(e) {
                         e.preventDefault();
                         if(category.value === 'all') category_products = products;
                         else category_products = products.filter(product => product.category === category.value);
                         search_by_term();
                     }
-                    function serach_by_term() {
+                    function search_by_term() {
                         if(searchterm.value.trim() === '') final_products = category_products;
                         else {
                             const lower_term = searchterm.value.trim().toLowerCase();
-                            final_products = category_products.filter(product => product.name.includes(lower_term));
+                            final_products = category_products.filter(product => product.name.trim().toLowerCase().includes(lower_term));
+                        }
+                        if(sort.value === 'up') {
+                            final_products.sort(function(a, b) {
+                                return parseInt(a.price) - parseInt(b.price);
+                            });
                         }
                         display();
                     }
@@ -49,7 +56,11 @@
                             para.textContent = 'No results found';
                             products_div.appendChild(para);
                         }
-                        else for(const product of final_products) fetchBlob(product);
+                        else {
+                            index = 0;
+                            for(let i = index; i < final_products.length && i < index + product_num; i++) fetchBlob(final_products[i]);
+                            index += product_num;
+                        }
                     }
                     function fetchBlob(product) {
                         fetch(product.img_link)
@@ -60,18 +71,92 @@
                         .then(blob => displayProduct(blob, product))
                         .catch(err => console.error(`Fetch problem: ${err.message}`));
                     }
-                    function displayProdcut(blob, product) {
+                    function displayProduct(blob, product) {
                         const container = document.createElement('div');
                         container.setAttribute('class', "container");
 
                         const image = document.createElement('img');
                         const product_imgurl = URL.createObjectURL(blob);
                         image.src = product_imgurl;
-                        image.alt = `${product.name}, &8361${product.price}`;
-
+                        image.alt = `${product.name}, ₩${product.price}`;
                         container.appendChild(image);
+
+                        const overlay = document.createElement('div');
+                        overlay.setAttribute('class', "overlay");
+                        const div_overlay = document.createElement('div');
+                        const p1 = document.createElement('p');
+                        p1.textContent = product.name;
+                        const p2 = document.createElement('p');
+                        p2.textContent = `₩${product.price}`;
+                        div_overlay.appendChild(p1); 
+                        div_overlay.appendChild(p2);
+                        overlay.appendChild(div_overlay);
+                        container.appendChild(overlay);
+
+                        const para = document.createElement('p');
+                        para.textContent = "Click to see more";
+                        para.style.textAlign = "center";
+                        para.style.margin = "5px 0px 5px 0px";
+                        container.appendChild(para);
+
+                        overlay.addEventListener('click', (e) => {
+                            let cure = e.target;
+                            while(cure.className != 'overlay') cure = cure.parentElement;
+                            if(cure.style.opacity == 0) cure.style.opacity = 0.6;
+                            else cure.style.opacity = 0;
+                        })
+
                         document.querySelector('#display_products').appendChild(container);
                     }
+                }
+            }
+            function add_products() {
+                for(let i = index; i < final_products.length && i < index + product_num; i++) fetchBlob(final_products[i]);
+                index += product_num;
+                function fetchBlob(product) {
+                    fetch(product.img_link)
+                    .then(response => {
+                        if(!response.ok) throw new Error(`HTTP error: ${response.status}`);
+                        return response.blob();
+                    })
+                    .then(blob => displayProduct(blob, product))
+                    .catch(err => console.error(`Fetch problem: ${err.message}`));
+                }
+                function displayProduct(blob, product) {
+                    const container = document.createElement('div');
+                    container.setAttribute('class', "container");
+
+                    const image = document.createElement('img');
+                    const product_imgurl = URL.createObjectURL(blob);
+                    image.src = product_imgurl;
+                    image.alt = `${product.name}, ₩${product.price}`;
+                    container.appendChild(image);
+
+                    const overlay = document.createElement('div');
+                    overlay.setAttribute('class', "overlay");
+                    const div_overlay = document.createElement('div');
+                    const p1 = document.createElement('p');
+                    p1.textContent = product.name;
+                    const p2 = document.createElement('p');
+                    p2.textContent = `₩${product.price}`;
+                    div_overlay.appendChild(p1); 
+                    div_overlay.appendChild(p2);
+                    overlay.appendChild(div_overlay);
+                    container.appendChild(overlay);
+
+                    const para = document.createElement('p');
+                    para.textContent = "Click to see more";
+                    para.style.textAlign = "center";
+                    para.style.margin = "5px 0px 5px 0px";
+                    container.appendChild(para);
+
+                    overlay.addEventListener('click', (e) => {
+                        let cure = e.target;
+                        while(cure.className != 'overlay') cure = cure.parentElement;
+                        if(cure.style.opacity == 0) cure.style.opacity = 0.6;
+                        else cure.style.opacity = 0;
+                    })
+                    document.querySelector('#display_products').appendChild(container);
                 }
             }
         </script>
@@ -108,10 +193,19 @@
                         <option value = "up"> Up </option>
                     </select>
                 </p>
+                <p> <button type = "button" id = "search_btn"> Filter results </button></p>
             </div>
             <div style = "flex-grow: 5; margin: 0px 20px 0px 20px; ">
                 <div id = "display_products">
-                    
+                    <div class = "container">
+                        <img src = "img/FHD24.jpg" alt = "FHD 24 inch, &#8361;75,360"/>
+                        <div class = "overlay"> 
+                            <div>
+                                <p> QHD 27 inch </p> 
+                                <p> &#8361;196,000 </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <hr> 
                 <div class = "contents">
