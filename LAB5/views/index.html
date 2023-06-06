@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title> MAIN PAGE </title>
+        <link rel="stylesheet" type="text/css" href="/main.css">
+        <script>
+            window.onload = () => {
+                const containers = document.getElementsByClassName('container');
+                for(let i = 0; i < containers.length; i++) {
+                    containers[i].addEventListener('click', (e) => {
+                        let cure = e.target;
+                        while(cure.className != 'container') cure = cure.parentElement;
+                        window.location.href = `product/:${cure.id}`;
+                    })
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <div class="welcome_panel">
+            <div class="moving_rl">
+                <h1> Welcome to INTERNET-PROGRAMMING SHOP</h1>
+            </div>
+        </div>
+        <div class="flex-container_nav">
+            <div class="flex-item_nav"> <a href="/"> MAIN </a> </div>
+            <div class="flex-item_nav"> <a href="/login"> LOGIN </a> </div>
+            <div class="flex-item_nav"> <a href="/signup"> SIGNUP </a> </div>
+        </div>
+        <div class="main_UI">
+            <form class="search_UI" style="flex-grow: 1" method="GET" action="/filter">
+                <p style="margin-bottom: 1px;"> Choose a category: </p>
+                <p style="margin-top: 1px;">
+                    <select name="categories" id="category">
+                        <option value="all"> All </option>
+                        <option value="computer monitor"> Computer Monitor </option>
+                        <option value="CPU"> CPU </option>
+                        <option value="GPU"> GPU </option>
+                        <option value="main board"> Main Board </option>
+                    </select>
+                </p>
+                <p style="margin-bottom: 1px;"> Enter search term: </p>
+                <p style="margin-top: 1px;"> <input type="text" name="searchterm" id="searchterm" placeholder="e.g. RTX" />
+                </p>
+                <p style="margin-bottom: 1px;"> Choose a sort: </p>
+                <p style="margin-top: 1px;">
+                    <select name="sort" id="sort">
+                        <option value="none"> None </option>
+                        <option value="up"> Up </option>
+                    </select>
+                </p>
+                <p> <input type="submit" id="search_btn" value="Filter results" /> </p>
+            </form>
+            <div style="flex-grow: 5; margin: 0px 20px 0px 20px; ">
+                <div id="display_products">
+                    {% for product in products %}
+                    <div id = "{{product.product_id}}" class = "container">
+                        <img src = "{{product.product_image}}" alt = "{{product.product_title}}, &#8361;{{product.product_price}}">
+                        <p style="text-align: center; margin: 5px 0px;">Click to see more</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                <hr>
+                <div class="contents">
+                    <section>
+                        <p>
+                            See the computer components you want to buy in this website.
+                        </p>
+                        <p> There are Monitors, CPUs, GPUs, and Mainboards. Look at the price and
+                            decide which one to buy.
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

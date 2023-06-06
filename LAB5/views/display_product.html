@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title> {{product.product_title}} </title>
+        <link rel="stylesheet" type="text/css" href="/main.css">
+    </head>
+    <body>
+        <div class="welcome_panel">
+            <div class="moving_rl">
+                <h1> Welcome to INTERNET-PROGRAMMING SHOP</h1>
+            </div>
+        </div>
+        <div class="flex-container_nav">
+            <div class="flex-item_nav"> <a href="/"> MAIN </a> </div>
+            <div class="flex-item_nav"> <a href="login.html"> LOGIN </a> </div>
+            <div class="flex-item_nav"> <a href="signup.html"> SIGNUP </a> </div>
+        </div>
+        <div class="main_UI">
+            <div class = "product_img">
+                <img src = "{{product.product_image}}" alt = "{{product.product_title}}, &#8361;{{product.product_price}}"/>
+            </div>
+            <div class = "product_info">
+                <p> product_id: {{product.product_id}} </p>
+                <p> product_image: {{product.product_image}} </p>
+                <p> product_title: {{product.product_title}} </p>
+                <p> product_price: &#8361;{{product.product_price}} </p>
+                <p> product_category: {{product.product_category}} </p>
+                <br>
+                <form method = "POST" name = "comment" action = "/product/update_comment">
+                    Submit your review: <br>
+                    <input type = "hidden" name = "id" value = "{{product.product_id}}"/>
+                    <input type = "text" name = "comment" placeholder = "Write your review"/> <br>
+                    <input type = "submit" value = "Submit"/>
+                </form>
+                <p> Feedback: </p>
+                <ul>
+                    {% for comment in comments %}
+                        <li> {{comment}} </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
